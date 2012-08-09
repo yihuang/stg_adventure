@@ -1,0 +1,47 @@
+[1 of 1] Compiling Test             ( first.hs, first.o )
+
+==================== Optimised Cmm ====================
+section "data" { __stginit_main:Test:
+}
+
+
+
+==================== Optimised Cmm ====================
+section "relreadonly" {
+    Test.test_srt:
+        const GHC.Num.$fNumInt_closure;
+}
+
+
+
+==================== Optimised Cmm ====================
+section "data" {
+    Test.test_closure:
+        const Test.test_info;
+        const 0;
+}
+
+
+
+==================== Optimised Cmm ====================
+Test.test_info()
+        { Just Test.test_info:
+                   const Test.test_srt-Test.test_info;
+                   const 65541;
+                   const 0;
+                   const 65551;
+        }
+    caG:
+        if ((Sp + -12) < I32[BaseReg + 84]) goto caJ;
+        I32[Sp - 4] = I32[Sp + 0];
+        I32[Sp + 0] = stg_INTLIKE_closure+137;
+        I32[Sp - 8] = stg_ap_pp_info;
+        I32[Sp - 12] = GHC.Num.$fNumInt_closure;
+        Sp = Sp - 12;
+        jump GHC.Num.+_info ();
+    caJ:
+        R1 = Test.test_closure;
+        jump (I32[BaseReg - 4]) ();
+}
+
+

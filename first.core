@@ -1,0 +1,13 @@
+[1 of 1] Compiling Test             ( first.hs, first.o )
+
+==================== Tidy Core ====================
+Result size = 8
+
+Test.test :: GHC.Types.Int -> GHC.Types.Int
+[GblId, Arity=1]
+Test.test =
+  \ (a_a9J :: GHC.Types.Int) ->
+    GHC.Num.+ @ GHC.Types.Int GHC.Num.$fNumInt a_a9J (GHC.Types.I# 1)
+
+
+

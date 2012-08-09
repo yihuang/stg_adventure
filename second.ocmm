@@ -1,0 +1,114 @@
+[1 of 1] Compiling Test             ( second.hs, second.o )
+
+==================== Optimised Cmm ====================
+section "data" { __stginit_main:Test:
+}
+
+
+
+==================== Optimised Cmm ====================
+section "relreadonly" {
+    Test.test_srt:
+        const GHC.Num.$fNumInt_closure;
+}
+
+
+
+==================== Optimised Cmm ====================
+section "data" {
+    Test.test_closure:
+        const Test.test_info;
+        const 0;
+}
+
+
+
+==================== Optimised Cmm ====================
+Test.test_info()
+        { Just Test.test_info:
+                   const Test.test_srt-Test.test_info;
+                   const 65541;
+                   const 0;
+                   const 65551;
+        }
+    caR:
+        if ((Sp + -12) < I32[BaseReg + 84]) goto caU;
+        I32[Sp - 4] = I32[Sp + 0];
+        I32[Sp + 0] = stg_INTLIKE_closure+137;
+        I32[Sp - 8] = stg_ap_pp_info;
+        I32[Sp - 12] = GHC.Num.$fNumInt_closure;
+        Sp = Sp - 12;
+        jump GHC.Num.+_info ();
+    caU:
+        R1 = Test.test_closure;
+        jump (I32[BaseReg - 4]) ();
+}
+
+
+
+==================== Optimised Cmm ====================
+section "relreadonly" {
+    Test.test1_srt:
+        const GHC.Num.$fNumInt_closure;
+        const GHC.Num.$fNumInt_closure;
+}
+
+
+
+==================== Optimised Cmm ====================
+section "data" {
+    Test.test1_closure:
+        const Test.test1_info;
+        const 0;
+}
+
+
+
+==================== Optimised Cmm ====================
+sat_saI_info()
+        { Just sat_saI_info:
+                   const Test.test1_srt-sat_saI_info;
+                   const 1;
+                   const 65553;
+        }
+    cb9:
+        if ((Sp + -12) < I32[BaseReg + 84]) goto cbb;
+        I32[Sp - 8] = stg_upd_frame_info;
+        I32[Sp - 4] = R1;
+        I32[Sp - 12] = I32[R1 + 8];
+        Sp = Sp - 12;
+        jump Test.test_info ();
+    cbb: jump (I32[BaseReg - 8]) ();
+}
+
+
+
+==================== Optimised Cmm ====================
+Test.test1_info()
+        { Just Test.test1_info:
+                   const Test.test1_srt-Test.test1_info;
+                   const 65541;
+                   const 0;
+                   const 196623;
+        }
+    cbh:
+        if ((Sp + -12) < I32[BaseReg + 84]) goto cbj;
+        Hp = Hp + 12;
+        if (Hp > I32[BaseReg + 92]) goto cbl;
+        I32[Hp - 8] = sat_saI_info;
+        I32[Hp + 0] = I32[Sp + 0];
+        I32[Sp + 0] = stg_INTLIKE_closure+137;
+        I32[Sp - 4] = Hp - 8;
+        I32[Sp - 8] = stg_ap_pp_info;
+        I32[Sp - 12] = GHC.Num.$fNumInt_closure;
+        Sp = Sp - 12;
+        jump GHC.Num.+_info ();
+    cbj:
+        R1 = Test.test1_closure;
+        jump (I32[BaseReg - 4]) ();
+    cbl:
+        I32[BaseReg + 116] = 12;
+        goto cbj;
+}
+
+

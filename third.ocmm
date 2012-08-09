@@ -1,0 +1,115 @@
+[1 of 1] Compiling Test             ( third.hs, third.o )
+
+==================== Optimised Cmm ====================
+section "data" { __stginit_main:Test:
+}
+
+
+
+==================== Optimised Cmm ====================
+section "relreadonly" {
+    Test.test_srt:
+        const GHC.Num.$fNumInt_closure;
+}
+
+
+
+==================== Optimised Cmm ====================
+section "data" {
+    Test.test_closure:
+        const Test.test_info;
+        const 0;
+}
+
+
+
+==================== Optimised Cmm ====================
+sat_sf5_info()
+        { Just sat_sf5_info:
+                   const Test.test_srt-sat_sf5_info;
+                   const 2;
+                   const 65555;
+        }
+    cfh:
+        if ((Sp + -24) < I32[BaseReg + 84]) goto cfj;
+        I32[Sp - 8] = stg_upd_frame_info;
+        I32[Sp - 4] = R1;
+        I32[Sp - 12] = I32[R1 + 12];
+        I32[Sp - 16] = I32[R1 + 8];
+        I32[Sp - 20] = stg_ap_pp_info;
+        I32[Sp - 24] = GHC.Num.$fNumInt_closure;
+        Sp = Sp - 24;
+        jump GHC.Num.+_info ();
+    cfj: jump (I32[BaseReg - 8]) ();
+}
+
+
+
+==================== Optimised Cmm ====================
+Test.test_info()
+        { Just Test.test_info:
+                   const Test.test_srt-Test.test_info;
+                   const 131084;
+                   const 0;
+                   const 65551;
+        }
+    cfq:
+        if ((Sp + -8) < I32[BaseReg + 84]) goto cfs;
+        Hp = Hp + 16;
+        if (Hp > I32[BaseReg + 92]) goto cfu;
+        I32[Hp - 12] = sat_sf5_info;
+        I32[Hp - 4] = I32[Sp + 0];
+        I32[Hp + 0] = I32[Sp + 4];
+        I32[Sp + 4] = stg_INTLIKE_closure+137;
+        I32[Sp + 0] = Hp - 12;
+        I32[Sp - 4] = stg_ap_pp_info;
+        I32[Sp - 8] = GHC.Num.$fNumInt_closure;
+        Sp = Sp - 8;
+        jump GHC.Num.+_info ();
+    cfs:
+        R1 = Test.test_closure;
+        jump (I32[BaseReg - 4]) ();
+    cfu:
+        I32[BaseReg + 116] = 16;
+        goto cfs;
+}
+
+
+
+==================== Optimised Cmm ====================
+section "relreadonly" {
+    Test.test1_srt:
+        const GHC.Show.$fShowInt_closure;
+}
+
+
+
+==================== Optimised Cmm ====================
+section "data" {
+    Test.test1_closure:
+        const Test.test1_info;
+        const 0;
+}
+
+
+
+==================== Optimised Cmm ====================
+Test.test1_info()
+        { Just Test.test1_info:
+                   const Test.test1_srt-Test.test1_info;
+                   const 65541;
+                   const 0;
+                   const 65551;
+        }
+    cfH:
+        if ((Sp + -8) < I32[BaseReg + 84]) goto cfK;
+        I32[Sp - 4] = stg_ap_p_info;
+        I32[Sp - 8] = GHC.Show.$fShowInt_closure;
+        Sp = Sp - 8;
+        jump GHC.Show.show_info ();
+    cfK:
+        R1 = Test.test1_closure;
+        jump (I32[BaseReg - 4]) ();
+}
+
+

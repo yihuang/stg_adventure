@@ -1,0 +1,20 @@
+[1 of 1] Compiling Test             ( second.hs, second.o )
+
+==================== Tidy Core ====================
+Result size = 17
+
+Test.test [InlPrag=NOINLINE] :: GHC.Types.Int -> GHC.Types.Int
+[GblId, Arity=1]
+Test.test =
+  \ (a_a9K :: GHC.Types.Int) ->
+    GHC.Num.+ @ GHC.Types.Int GHC.Num.$fNumInt a_a9K (GHC.Types.I# 1)
+
+Test.test1 :: GHC.Types.Int -> GHC.Types.Int
+[GblId, Arity=1]
+Test.test1 =
+  \ (a_aa3 :: GHC.Types.Int) ->
+    GHC.Num.+
+      @ GHC.Types.Int GHC.Num.$fNumInt (Test.test a_aa3) (GHC.Types.I# 1)
+
+
+

@@ -1,0 +1,262 @@
+[1 of 1] Compiling Test             ( fouth.hs, fouth.o )
+
+==================== Cmm ====================
+[section "data" { __stginit_Test:
+ }]
+ 
+-------------------
+ 
+[section "relreadonly" {
+     Test_test_srt:
+         const base_GHCziNum_zdfNumInt_closure;
+ },
+ section "data" {
+     Test_test_closure:
+         const Test_test_info;
+         const 0;
+ },
+ sbd_info()
+         { update_frame: <none>
+           label: sbd_info
+           rep:HeapRep 2 ptrs { Thunk }
+         }
+     cbm:
+         if (Sp - 24 < SpLim) goto cbo;
+         I32[Sp - 8] = stg_upd_frame_info;
+         I32[Sp - 4] = R1;
+         I32[Sp - 12] = I32[R1 + 12];
+         I32[Sp - 16] = I32[R1 + 8];
+         I32[Sp - 20] = stg_ap_pp_info;
+         I32[Sp - 24] = base_GHCziNum_zdfNumInt_closure;
+         Sp = Sp - 24;
+         jump base_GHCziNum_zp_info ();
+     cbo: jump stg_gc_enter_1 ();
+ },
+ Test_test_info()
+         { update_frame: <none>
+           label: Test_test_info
+           rep:HeapRep static { Fun {arity: 2 fun_type: ArgSpec 12} }
+         }
+     cbq:
+         Hp = Hp + 24;
+         if (Hp > HpLim) goto cbt;
+         I32[Hp - 20] = sbd_info;
+         I32[Hp - 12] = I32[Sp + 0];
+         I32[Hp - 8] = I32[Sp + 4];
+         I32[Hp - 4] = Test_Test2_con_info;
+         I32[Hp + 0] = Hp - 20;
+         R1 = Hp - 2;
+         Sp = Sp + 8;
+         jump (I32[Sp + 0]) ();
+     cbu:
+         R1 = Test_test_closure;
+         jump stg_gc_fun ();
+     cbt:
+         HpAlloc = 24;
+         goto cbu;
+ }]
+ 
+-------------------
+ 
+[section "relreadonly" {
+     Test_test1_srt:
+         const base_ControlziExceptionziBase_patError_closure;
+         const ghczmprim_GHCziCString_unpackCStringzh_closure;
+         const base_GHCziNum_zdfNumInt_closure;
+         const base_GHCziNum_zdfNumInt_closure;
+ },
+ section "data" {
+     Test_test1_closure:
+         const Test_test1_info;
+         const 0;
+ },
+ sb7_info()
+         { update_frame: <none>
+           label: sb7_info
+           rep:HeapRep 1 ptrs { Thunk }
+         }
+     cbD:
+         if (Sp - 24 < SpLim) goto cbF;
+         I32[Sp - 8] = stg_upd_frame_info;
+         I32[Sp - 4] = R1;
+         I32[Sp - 12] = stg_INTLIKE_closure+137;
+         I32[Sp - 16] = I32[R1 + 8];
+         I32[Sp - 20] = stg_ap_pp_info;
+         I32[Sp - 24] = base_GHCziNum_zdfNumInt_closure;
+         Sp = Sp - 24;
+         jump base_GHCziNum_zp_info ();
+     cbF: jump stg_gc_enter_1 ();
+ },
+ section "readonly" {
+     cbL_str:
+         I8[] [102,111,117,116,104,46,104,115,58,40,49,49,44,49,49,41,45,40,49,50,44,51,55,41,124,99,97,115,101]
+ },
+ section "readonly" {
+     cbR_str:
+         I8[] [104,101,108,108,111]
+ },
+ sb9_info()
+         { update_frame: <none>
+           label: sb9_info
+           rep:HeapRep { Thunk }
+         }
+     cbU:
+         if (Sp - 12 < SpLim) goto cbW;
+         I32[Sp - 8] = stg_upd_frame_info;
+         I32[Sp - 4] = R1;
+         R1 = ghczmprim_GHCziCString_unpackCStringzh_closure;
+         I32[Sp - 12] = cbR_str;
+         Sp = Sp - 12;
+         jump stg_ap_n_fast ();
+     cbW: jump stg_gc_enter_1 ();
+ },
+ sbc_ret()
+         { update_frame: <none>
+           label: sbc_info
+           rep:StackRep []
+         }
+     cc0:
+         _cc1::I32 = R1 & 3;
+         if (_cc1::I32 >= 2) goto cc2;
+         I32[Sp + 0] = cbL_str;
+         jump base_ControlziExceptionziBase_patError_info ();
+     cc2:
+         Hp = Hp + 16;
+         if (Hp > HpLim) goto cc5;
+         I32[Hp - 12] = sb9_info;
+         I32[Hp - 4] = Test_Test1_con_info;
+         I32[Hp + 0] = Hp - 12;
+         R1 = Hp - 3;
+         Sp = Sp + 4;
+         jump (I32[Sp + 0]) ();
+     cc6: jump stg_gc_enter_1 ();
+     cc5:
+         HpAlloc = 16;
+         goto cc6;
+ },
+ Test_test1_info()
+         { update_frame: <none>
+           label: Test_test1_info
+           rep:HeapRep static { Fun {arity: 1 fun_type: ArgSpec 5} }
+         }
+     cc8:
+         if (Sp - 8 < SpLim) goto cca;
+         Hp = Hp + 12;
+         if (Hp > HpLim) goto ccc;
+         I32[Hp - 8] = sb7_info;
+         I32[Hp + 0] = I32[Sp + 0];
+         I32[Sp - 4] = Hp - 8;
+         I32[Sp - 8] = stg_INTLIKE_closure+137;
+         I32[Sp + 0] = sbc_info;
+         Sp = Sp - 8;
+         jump Test_test_info ();
+     cca:
+         R1 = Test_test1_closure;
+         jump stg_gc_fun ();
+     ccc:
+         HpAlloc = 12;
+         goto cca;
+ }]
+ 
+-------------------
+ 
+[section "data" {
+     Test_Test1_closure:
+         const Test_Test1_info;
+ },
+ Test_Test1_info()
+         { update_frame: <none>
+           label: Test_Test1_info
+           rep:HeapRep static { Fun {arity: 1 fun_type: ArgSpec 5} }
+         }
+     cch:
+         Hp = Hp + 8;
+         if (Hp > HpLim) goto ccl;
+         I32[Hp - 4] = Test_Test1_con_info;
+         I32[Hp + 0] = I32[Sp + 0];
+         R1 = Hp - 3;
+         Sp = Sp + 4;
+         jump (I32[Sp + 0]) ();
+     ccm:
+         R1 = Test_Test1_closure;
+         jump stg_gc_fun ();
+     ccl:
+         HpAlloc = 8;
+         goto ccm;
+ }]
+ 
+-------------------
+ 
+[section "data" {
+     Test_Test2_closure:
+         const Test_Test2_info;
+ },
+ Test_Test2_info()
+         { update_frame: <none>
+           label: Test_Test2_info
+           rep:HeapRep static { Fun {arity: 1 fun_type: ArgSpec 5} }
+         }
+     ccr:
+         Hp = Hp + 8;
+         if (Hp > HpLim) goto ccv;
+         I32[Hp - 4] = Test_Test2_con_info;
+         I32[Hp + 0] = I32[Sp + 0];
+         R1 = Hp - 2;
+         Sp = Sp + 4;
+         jump (I32[Sp + 0]) ();
+     ccw:
+         R1 = Test_Test2_closure;
+         jump stg_gc_fun ();
+     ccv:
+         HpAlloc = 8;
+         goto ccw;
+ }]
+ 
+-------------------
+ 
+[Test_Test1_con_info()
+         { update_frame: <none>
+           label: Test_Test1_con_info
+           rep:HeapRep 1 ptrs {
+                 Con {tag: 0
+                      descr:[109,97,105,110,58,84,101,115,116,46,84,101,115,116,49]} }
+         }
+     ccy:
+         R1 = R1 + 1;
+         jump (I32[Sp + 0]) ();
+ },
+ Test_Test1_static_info()
+         { update_frame: <none>
+           label: Test_Test1_static_info
+           rep:HeapRep static {
+                 Con {tag: 0
+                      descr:[109,97,105,110,58,84,101,115,116,46,84,101,115,116,49]} }
+         }
+     ccA:
+         R1 = R1 + 1;
+         jump (I32[Sp + 0]) ();
+ },
+ Test_Test2_con_info()
+         { update_frame: <none>
+           label: Test_Test2_con_info
+           rep:HeapRep 1 ptrs {
+                 Con {tag: 1
+                      descr:[109,97,105,110,58,84,101,115,116,46,84,101,115,116,50]} }
+         }
+     ccC:
+         R1 = R1 + 2;
+         jump (I32[Sp + 0]) ();
+ },
+ Test_Test2_static_info()
+         { update_frame: <none>
+           label: Test_Test2_static_info
+           rep:HeapRep static {
+                 Con {tag: 1
+                      descr:[109,97,105,110,58,84,101,115,116,46,84,101,115,116,50]} }
+         }
+     ccE:
+         R1 = R1 + 2;
+         jump (I32[Sp + 0]) ();
+ }]
+
+

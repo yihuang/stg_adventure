@@ -1,0 +1,16 @@
+[1 of 1] Compiling Test             ( second.hs, second.o )
+
+==================== STG syntax: ====================
+Test.test =
+    \r srt:(0,*bitmap*) [a_saB]
+        let { sat_saH = NO_CCS GHC.Types.I#! [1];
+        } in  GHC.Num.+ GHC.Num.$fNumInt a_saB sat_saH;
+SRT(Test.test): [GHC.Num.$fNumInt]
+Test.test1 =
+    \r srt:(0,*bitmap*) [a_saE]
+        let { sat_saI = NO_CCS GHC.Types.I#! [1]; } in
+        let { sat_saJ = \u srt:(0,*bitmap*) [] Test.test a_saE;
+        } in  GHC.Num.+ GHC.Num.$fNumInt sat_saJ sat_saI;
+SRT(Test.test1): [GHC.Num.$fNumInt, GHC.Num.$fNumInt]
+
+

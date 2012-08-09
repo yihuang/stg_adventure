@@ -1,0 +1,10 @@
+[1 of 1] Compiling Test             ( first.hs, first.o )
+
+==================== STG syntax: ====================
+Test.test =
+    \r srt:(0,*bitmap*) [a_saw]
+        let { sat_say = NO_CCS GHC.Types.I#! [1];
+        } in  GHC.Num.+ GHC.Num.$fNumInt a_saw sat_say;
+SRT(Test.test): [GHC.Num.$fNumInt]
+
+

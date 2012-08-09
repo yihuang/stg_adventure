@@ -1,0 +1,88 @@
+[1 of 1] Compiling Test             ( third.hs, third.o )
+
+==================== Cmm ====================
+[section "data" { __stginit_Test:
+ }]
+ 
+-------------------
+ 
+[section "relreadonly" {
+     Test_test_srt:
+         const base_GHCziNum_zdfNumInt_closure;
+ },
+ section "data" {
+     Test_test_closure:
+         const Test_test_info;
+         const 0;
+ },
+ sf5_info()
+         { update_frame: <none>
+           label: sf5_info
+           rep:HeapRep 2 ptrs { Thunk }
+         }
+     cfe:
+         if (Sp - 24 < SpLim) goto cfg;
+         I32[Sp - 8] = stg_upd_frame_info;
+         I32[Sp - 4] = R1;
+         I32[Sp - 12] = I32[R1 + 12];
+         I32[Sp - 16] = I32[R1 + 8];
+         I32[Sp - 20] = stg_ap_pp_info;
+         I32[Sp - 24] = base_GHCziNum_zdfNumInt_closure;
+         Sp = Sp - 24;
+         jump base_GHCziNum_zp_info ();
+     cfg: jump stg_gc_enter_1 ();
+ },
+ Test_test_info()
+         { update_frame: <none>
+           label: Test_test_info
+           rep:HeapRep static { Fun {arity: 2 fun_type: ArgSpec 12} }
+         }
+     cfi:
+         if (Sp - 8 < SpLim) goto cfk;
+         Hp = Hp + 16;
+         if (Hp > HpLim) goto cfm;
+         I32[Hp - 12] = sf5_info;
+         I32[Hp - 4] = I32[Sp + 0];
+         I32[Hp + 0] = I32[Sp + 4];
+         I32[Sp + 4] = stg_INTLIKE_closure+137;
+         I32[Sp + 0] = Hp - 12;
+         I32[Sp - 4] = stg_ap_pp_info;
+         I32[Sp - 8] = base_GHCziNum_zdfNumInt_closure;
+         Sp = Sp - 8;
+         jump base_GHCziNum_zp_info ();
+     cfk:
+         R1 = Test_test_closure;
+         jump stg_gc_fun ();
+     cfm:
+         HpAlloc = 16;
+         goto cfk;
+ }]
+ 
+-------------------
+ 
+[section "relreadonly" {
+     Test_test1_srt:
+         const base_GHCziShow_zdfShowInt_closure;
+ },
+ section "data" {
+     Test_test1_closure:
+         const Test_test1_info;
+         const 0;
+ },
+ Test_test1_info()
+         { update_frame: <none>
+           label: Test_test1_info
+           rep:HeapRep static { Fun {arity: 1 fun_type: ArgSpec 5} }
+         }
+     cfr:
+         if (Sp - 8 < SpLim) goto cfu;
+         I32[Sp - 4] = stg_ap_p_info;
+         I32[Sp - 8] = base_GHCziShow_zdfShowInt_closure;
+         Sp = Sp - 8;
+         jump base_GHCziShow_show_info ();
+     cfu:
+         R1 = Test_test1_closure;
+         jump stg_gc_fun ();
+ }]
+
+

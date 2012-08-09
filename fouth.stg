@@ -1,0 +1,36 @@
+[1 of 1] Compiling Test             ( fouth.hs, fouth.o )
+
+==================== STG syntax: ====================
+Test.test =
+    \r srt:(0,*bitmap*) [a_saU b_saV]
+        let {
+          sat_sb7 =
+              \u srt:(0,*bitmap*) [] GHC.Num.+ GHC.Num.$fNumInt a_saU b_saV;
+        } in  Test.Test2 [sat_sb7];
+SRT(Test.test): [GHC.Num.$fNumInt]
+Test.test1 =
+    \r srt:(0,*bitmap*) [a_saZ]
+        let {
+          sat_sb8 =
+              \u srt:(3,*bitmap*) []
+                  let { sat_sb1 = NO_CCS GHC.Types.I#! [1];
+                  } in  GHC.Num.+ GHC.Num.$fNumInt a_saZ sat_sb1; } in
+        let { sat_sb9 = NO_CCS GHC.Types.I#! [1];
+        } in 
+          case Test.test sat_sb9 sat_sb8 of wild_sbd {
+            Test.Test1 ipv_sbc ->
+                Control.Exception.Base.patError "fouth.hs:(11,11)-(12,37)|case";
+            Test.Test2 a1_sbb ->
+                let {
+                  sat_sba =
+                      \u srt:(1,*bitmap*) [] GHC.CString.unpackCString# "hello";
+                } in  Test.Test1 [sat_sba];
+          };
+SRT(Test.test1): [Control.Exception.Base.patError,
+                  GHC.CString.unpackCString#, GHC.Num.$fNumInt, GHC.Num.$fNumInt]
+Test.Test1 = \r [eta_B1] Test.Test1 [eta_B1];
+SRT(Test.Test1): []
+Test.Test2 = \r [eta_B1] Test.Test2 [eta_B1];
+SRT(Test.Test2): []
+
+

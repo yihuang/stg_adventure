@@ -1,0 +1,16 @@
+[1 of 1] Compiling Test             ( third.hs, third.o )
+
+==================== STG syntax: ====================
+Test.test =
+    \r srt:(0,*bitmap*) [a_seY b_seZ]
+        let { sat_sf4 = NO_CCS GHC.Types.I#! [1]; } in
+        let {
+          sat_sf5 =
+              \u srt:(0,*bitmap*) [] GHC.Num.+ GHC.Num.$fNumInt a_seY b_seZ;
+        } in  GHC.Num.+ GHC.Num.$fNumInt sat_sf5 sat_sf4;
+SRT(Test.test): [GHC.Num.$fNumInt]
+Test.test1 =
+    \r srt:(0,*bitmap*) [a_sf3] GHC.Show.show GHC.Show.$fShowInt a_sf3;
+SRT(Test.test1): [GHC.Show.$fShowInt]
+
+

@@ -1,0 +1,36 @@
+[1 of 1] Compiling Test             ( first.hs, first.o )
+
+==================== Cmm ====================
+[section "data" { __stginit_Test:
+ }]
+ 
+-------------------
+ 
+[section "relreadonly" {
+     Test_test_srt:
+         const base_GHCziNum_zdfNumInt_closure;
+ },
+ section "data" {
+     Test_test_closure:
+         const Test_test_info;
+         const 0;
+ },
+ Test_test_info()
+         { update_frame: <none>
+           label: Test_test_info
+           rep:HeapRep static { Fun {arity: 1 fun_type: ArgSpec 5} }
+         }
+     caD:
+         if (Sp - 12 < SpLim) goto caG;
+         I32[Sp - 4] = I32[Sp + 0];
+         I32[Sp + 0] = stg_INTLIKE_closure+137;
+         I32[Sp - 8] = stg_ap_pp_info;
+         I32[Sp - 12] = base_GHCziNum_zdfNumInt_closure;
+         Sp = Sp - 12;
+         jump base_GHCziNum_zp_info ();
+     caG:
+         R1 = Test_test_closure;
+         jump stg_gc_fun ();
+ }]
+
+

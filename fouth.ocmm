@@ -1,0 +1,364 @@
+[1 of 1] Compiling Test             ( fouth.hs, fouth.o )
+
+==================== Optimised Cmm ====================
+section "data" { __stginit_main:Test:
+}
+
+
+
+==================== Optimised Cmm ====================
+section "relreadonly" {
+    Test.test_srt:
+        const GHC.Num.$fNumInt_closure;
+}
+
+
+
+==================== Optimised Cmm ====================
+section "data" {
+    Test.test_closure:
+        const Test.test_info;
+        const 0;
+}
+
+
+
+==================== Optimised Cmm ====================
+sat_sbd_info()
+        { Just sat_sbd_info:
+                   const Test.test_srt-sat_sbd_info;
+                   const 2;
+                   const 65555;
+        }
+    cbt:
+        if ((Sp + -24) < I32[BaseReg + 84]) goto cbv;
+        I32[Sp - 8] = stg_upd_frame_info;
+        I32[Sp - 4] = R1;
+        I32[Sp - 12] = I32[R1 + 12];
+        I32[Sp - 16] = I32[R1 + 8];
+        I32[Sp - 20] = stg_ap_pp_info;
+        I32[Sp - 24] = GHC.Num.$fNumInt_closure;
+        Sp = Sp - 24;
+        jump GHC.Num.+_info ();
+    cbv: jump (I32[BaseReg - 8]) ();
+}
+
+
+
+==================== Optimised Cmm ====================
+Test.test_info()
+        { Just Test.test_info:
+                   const Test.test_srt-Test.test_info;
+                   const 131084;
+                   const 0;
+                   const 65551;
+        }
+    cbC:
+        Hp = Hp + 24;
+        if (Hp > I32[BaseReg + 92]) goto cbG;
+        I32[Hp - 20] = sat_sbd_info;
+        I32[Hp - 12] = I32[Sp + 0];
+        I32[Hp - 8] = I32[Sp + 4];
+        I32[Hp - 4] = Test.Test2_con_info;
+        I32[Hp + 0] = Hp - 20;
+        R1 = Hp - 2;
+        Sp = Sp + 8;
+        jump (I32[Sp + 0]) ();
+    cbE:
+        R1 = Test.test_closure;
+        jump (I32[BaseReg - 4]) ();
+    cbG:
+        I32[BaseReg + 116] = 24;
+        goto cbE;
+}
+
+
+
+==================== Optimised Cmm ====================
+section "relreadonly" {
+    Test.test1_srt:
+        const Control.Exception.Base.patError_closure;
+        const GHC.CString.unpackCString#_closure;
+        const GHC.Num.$fNumInt_closure;
+        const GHC.Num.$fNumInt_closure;
+}
+
+
+
+==================== Optimised Cmm ====================
+section "data" {
+    Test.test1_closure:
+        const Test.test1_info;
+        const 0;
+}
+
+
+
+==================== Optimised Cmm ====================
+sat_sb7_info()
+        { Just sat_sb7_info:
+                   const Test.test1_srt-sat_sb7_info+12;
+                   const 1;
+                   const 65553;
+        }
+    cbW:
+        if ((Sp + -24) < I32[BaseReg + 84]) goto cbY;
+        I32[Sp - 8] = stg_upd_frame_info;
+        I32[Sp - 4] = R1;
+        I32[Sp - 12] = stg_INTLIKE_closure+137;
+        I32[Sp - 16] = I32[R1 + 8];
+        I32[Sp - 20] = stg_ap_pp_info;
+        I32[Sp - 24] = GHC.Num.$fNumInt_closure;
+        Sp = Sp - 24;
+        jump GHC.Num.+_info ();
+    cbY: jump (I32[BaseReg - 8]) ();
+}
+
+
+
+==================== Optimised Cmm ====================
+section "readonly" {
+    cc8_str:
+        I8[] [102,111,117,116,104,46,104,115,58,40,49,49,44,49,49,41,45,40,49,50,44,51,55,41,124,99,97,115,101]
+}
+
+
+
+==================== Optimised Cmm ====================
+section "readonly" {
+    ccf_str:
+        I8[] [104,101,108,108,111]
+}
+
+
+
+==================== Optimised Cmm ====================
+sat_sb9_info()
+        { Just sat_sb9_info:
+                   const Test.test1_srt-sat_sb9_info+4;
+                   const 0;
+                   const 65552;
+        }
+    ccj:
+        if ((Sp + -12) < I32[BaseReg + 84]) goto ccl;
+        I32[Sp - 8] = stg_upd_frame_info;
+        I32[Sp - 4] = R1;
+        R1 = GHC.CString.unpackCString#_closure;
+        I32[Sp - 12] = ccf_str;
+        Sp = Sp - 12;
+        jump stg_ap_n_fast ();
+    ccl: jump (I32[BaseReg - 8]) ();
+}
+
+
+
+==================== Optimised Cmm ====================
+sbc_ret()
+        { Just sbc_info:
+                   const Test.test1_srt-sbc_info;
+                   const 0;
+                   const 196640;
+        }
+    ccs:
+        if (R1 & 3 >= 2) goto cct;
+        I32[Sp + 0] = cc8_str;
+        jump Control.Exception.Base.patError_info ();
+    cct:
+        Hp = Hp + 16;
+        if (Hp > I32[BaseReg + 92]) goto ccx;
+        I32[Hp - 12] = sat_sb9_info;
+        I32[Hp - 4] = Test.Test1_con_info;
+        I32[Hp + 0] = Hp - 12;
+        R1 = Hp - 3;
+        Sp = Sp + 4;
+        jump (I32[Sp + 0]) ();
+    ccv: jump (I32[BaseReg - 8]) ();
+    ccx:
+        I32[BaseReg + 116] = 16;
+        goto ccv;
+}
+
+
+
+==================== Optimised Cmm ====================
+Test.test1_info()
+        { Just Test.test1_info:
+                   const Test.test1_srt-Test.test1_info;
+                   const 65541;
+                   const 0;
+                   const 983055;
+        }
+    ccF:
+        if ((Sp + -8) < I32[BaseReg + 84]) goto ccH;
+        Hp = Hp + 12;
+        if (Hp > I32[BaseReg + 92]) goto ccJ;
+        I32[Hp - 8] = sat_sb7_info;
+        I32[Hp + 0] = I32[Sp + 0];
+        I32[Sp - 4] = Hp - 8;
+        I32[Sp - 8] = stg_INTLIKE_closure+137;
+        I32[Sp + 0] = sbc_info;
+        Sp = Sp - 8;
+        jump Test.test_info ();
+    ccH:
+        R1 = Test.test1_closure;
+        jump (I32[BaseReg - 4]) ();
+    ccJ:
+        I32[BaseReg + 116] = 12;
+        goto ccH;
+}
+
+
+
+==================== Optimised Cmm ====================
+section "data" {
+    Test.Test1_closure:
+        const Test.Test1_info;
+}
+
+
+
+==================== Optimised Cmm ====================
+Test.Test1_info()
+        { Just Test.Test1_info:
+                   const 65541;
+                   const 0;
+                   const 15;
+        }
+    ccU:
+        Hp = Hp + 8;
+        if (Hp > I32[BaseReg + 92]) goto ccZ;
+        I32[Hp - 4] = Test.Test1_con_info;
+        I32[Hp + 0] = I32[Sp + 0];
+        R1 = Hp - 3;
+        Sp = Sp + 4;
+        jump (I32[Sp + 0]) ();
+    ccX:
+        R1 = Test.Test1_closure;
+        jump (I32[BaseReg - 4]) ();
+    ccZ:
+        I32[BaseReg + 116] = 8;
+        goto ccX;
+}
+
+
+
+==================== Optimised Cmm ====================
+section "data" {
+    Test.Test2_closure:
+        const Test.Test2_info;
+}
+
+
+
+==================== Optimised Cmm ====================
+Test.Test2_info()
+        { Just Test.Test2_info:
+                   const 65541;
+                   const 0;
+                   const 15;
+        }
+    cd8:
+        Hp = Hp + 8;
+        if (Hp > I32[BaseReg + 92]) goto cdd;
+        I32[Hp - 4] = Test.Test2_con_info;
+        I32[Hp + 0] = I32[Sp + 0];
+        R1 = Hp - 2;
+        Sp = Sp + 4;
+        jump (I32[Sp + 0]) ();
+    cdb:
+        R1 = Test.Test2_closure;
+        jump (I32[BaseReg - 4]) ();
+    cdd:
+        I32[BaseReg + 116] = 8;
+        goto cdb;
+}
+
+
+
+==================== Optimised Cmm ====================
+section "readonly" {
+    idh_str:
+        I8[] [109,97,105,110,58,84,101,115,116,46,84,101,115,116,49]
+}
+
+
+
+==================== Optimised Cmm ====================
+Test.Test1_con_info()
+        { Just Test.Test1_con_info:
+                   const idh_str-Test.Test1_con_info;
+                   const 1;
+                   const 2;
+        }
+    cdk:
+        R1 = R1 + 1;
+        jump (I32[Sp + 0]) ();
+}
+
+
+
+==================== Optimised Cmm ====================
+section "readonly" {
+    idn_str:
+        I8[] [109,97,105,110,58,84,101,115,116,46,84,101,115,116,49]
+}
+
+
+
+==================== Optimised Cmm ====================
+Test.Test1_static_info()
+        { Just Test.Test1_static_info:
+                   const idn_str-Test.Test1_static_info;
+                   const 1;
+                   const 7;
+        }
+    cdq:
+        R1 = R1 + 1;
+        jump (I32[Sp + 0]) ();
+}
+
+
+
+==================== Optimised Cmm ====================
+section "readonly" {
+    idt_str:
+        I8[] [109,97,105,110,58,84,101,115,116,46,84,101,115,116,50]
+}
+
+
+
+==================== Optimised Cmm ====================
+Test.Test2_con_info()
+        { Just Test.Test2_con_info:
+                   const idt_str-Test.Test2_con_info;
+                   const 1;
+                   const 65538;
+        }
+    cdw:
+        R1 = R1 + 2;
+        jump (I32[Sp + 0]) ();
+}
+
+
+
+==================== Optimised Cmm ====================
+section "readonly" {
+    idz_str:
+        I8[] [109,97,105,110,58,84,101,115,116,46,84,101,115,116,50]
+}
+
+
+
+==================== Optimised Cmm ====================
+Test.Test2_static_info()
+        { Just Test.Test2_static_info:
+                   const idz_str-Test.Test2_static_info;
+                   const 1;
+                   const 65543;
+        }
+    cdC:
+        R1 = R1 + 2;
+        jump (I32[Sp + 0]) ();
+}
+
+

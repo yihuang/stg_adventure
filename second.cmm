@@ -1,0 +1,87 @@
+[1 of 1] Compiling Test             ( second.hs, second.o )
+
+==================== Cmm ====================
+[section "data" { __stginit_Test:
+ }]
+ 
+-------------------
+ 
+[section "relreadonly" {
+     Test_test_srt:
+         const base_GHCziNum_zdfNumInt_closure;
+ },
+ section "data" {
+     Test_test_closure:
+         const Test_test_info;
+         const 0;
+ },
+ Test_test_info()
+         { update_frame: <none>
+           label: Test_test_info
+           rep:HeapRep static { Fun {arity: 1 fun_type: ArgSpec 5} }
+         }
+     caO:
+         if (Sp - 12 < SpLim) goto caR;
+         I32[Sp - 4] = I32[Sp + 0];
+         I32[Sp + 0] = stg_INTLIKE_closure+137;
+         I32[Sp - 8] = stg_ap_pp_info;
+         I32[Sp - 12] = base_GHCziNum_zdfNumInt_closure;
+         Sp = Sp - 12;
+         jump base_GHCziNum_zp_info ();
+     caR:
+         R1 = Test_test_closure;
+         jump stg_gc_fun ();
+ }]
+ 
+-------------------
+ 
+[section "relreadonly" {
+     Test_test1_srt:
+         const base_GHCziNum_zdfNumInt_closure;
+         const base_GHCziNum_zdfNumInt_closure;
+ },
+ section "data" {
+     Test_test1_closure:
+         const Test_test1_info;
+         const 0;
+ },
+ saI_info()
+         { update_frame: <none>
+           label: saI_info
+           rep:HeapRep 1 ptrs { Thunk }
+         }
+     cb0:
+         if (Sp - 12 < SpLim) goto cb2;
+         I32[Sp - 8] = stg_upd_frame_info;
+         I32[Sp - 4] = R1;
+         I32[Sp - 12] = I32[R1 + 8];
+         Sp = Sp - 12;
+         jump Test_test_info ();
+     cb2: jump stg_gc_enter_1 ();
+ },
+ Test_test1_info()
+         { update_frame: <none>
+           label: Test_test1_info
+           rep:HeapRep static { Fun {arity: 1 fun_type: ArgSpec 5} }
+         }
+     cb4:
+         if (Sp - 12 < SpLim) goto cb6;
+         Hp = Hp + 12;
+         if (Hp > HpLim) goto cb8;
+         I32[Hp - 8] = saI_info;
+         I32[Hp + 0] = I32[Sp + 0];
+         I32[Sp + 0] = stg_INTLIKE_closure+137;
+         I32[Sp - 4] = Hp - 8;
+         I32[Sp - 8] = stg_ap_pp_info;
+         I32[Sp - 12] = base_GHCziNum_zdfNumInt_closure;
+         Sp = Sp - 12;
+         jump base_GHCziNum_zp_info ();
+     cb6:
+         R1 = Test_test1_closure;
+         jump stg_gc_fun ();
+     cb8:
+         HpAlloc = 12;
+         goto cb6;
+ }]
+
+
